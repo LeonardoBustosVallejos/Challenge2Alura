@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-width: 100%;
+    height: 100vh;
+}
+
+main{
+    width: 100%;
+    height: 80vh;
+    padding: 2em;
+    overflow: scroll;
+}
+
+.logo{
+    margin: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.header{
+    background-color: #D29340;
+    width: 100%;
+    height: 15vh;
+    font-size: 1.5em;
+    line-height: 5em;
+    font-weight: bold;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 992px;
+    margin: 0 auto;
+}
+
+.nav-toggle{
+    background: none;
+    border: none;
+    display: none;
+}
+
+.nav-menu{
+    display: flex;
+    list-style: none;
+    margin-right: 2.5em;
+}
+
+.nav-menu-item{
+    margin-right: 1em;
+    width: max-content;
+}
+
+.nav-menu-link{
+    text-decoration: none;
+    color: #000000;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    transition: 0.5s;
+}
+
+.nav-menu-link:hover{
+    background-color: #cf8422;
+}
+
+.footer{
+    background-color: #cf8422;
+    padding: 0.5em;
+    width: 100%;
+    height: 5vh;
+}
+
+.div-icon-container{
+    display: flex;
+}
+
+.div-icon-link{
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+/*
+    RESPONSIVE
+*/
+
+@media(max-width: 768px){
+
+
+    .header{
+        height: 15%;
+    }
+
+    .nav-toggle{
+        display: block;
+        margin-right: 1em;
+    }
+
+    .nav-menu{
+        background-color: #D29340;
+        flex-direction: column;
+        position: fixed;
+        width: 100%;
+        height: calc(100%);
+        overflow-y: auto;
+        padding: 1.5em;
+        align-items: center;
+        left: 0;
+        top: 4em;
+        left: 100%;
+        transition: left 0.3s;
+    }
+
+    main{
+        padding: 1em 1em;
+    }
+    
+    .nav-menu-link:hover{
+        background: none;
+        color: #cf8422;
+    }
+
+    .nav-toggle:hover{
+        cursor: pointer;
+    }
+
+    .nav-menu_visible{
+        left: 0%;
+    }
+
+    .footer{
+        padding: 0;
+    }
+}

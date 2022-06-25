@@ -1,0 +1,38 @@
+main{
+    background-color: #F3F5FC;
+}
+
+.div-h2-instrucciones{
+    font-weight: bolder;
+    font-size: 2.4em;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.ul-instrucciones-container{
+    padding-left: 1.5em;
+}
+
+.ul-instrucciones{
+    font-size: 1.8em;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.ul-instrucciones-li{
+    padding-top: 1em;
+    padding-left: 0.5em;
+}
+
+@media (max-width: 768px) {
+
+    .div-h2-instrucciones{
+        font-size: 1.5em;
+    }
+
+    .ul-instrucciones{
+        font-size: 1.2em;
+    }
+
+    .ul-instrucciones-li{
+        padding-top: 0.7em;
+    }
+}

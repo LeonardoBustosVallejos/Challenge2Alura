@@ -1,0 +1,87 @@
+main{
+    background-color: #F3F5FC;
+}
+
+.anhadir-palabra-contenedor{
+    display: flex;
+    justify-content: space-around;
+}
+
+.div-contenedor-anhadir-palabra{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div-anhadir-palabra-titulo{
+    padding: 1em;
+    font-weight: bolder;
+    font-family: cursive;
+}
+
+.h2-palabras-anhadidas{
+    padding: 1em;
+    font-family: cursive;
+}
+
+#anhadir-palabra{
+    height: 3em;
+    border-color: #0A3871;
+    border-radius: 0.5em;
+    padding: 1em;
+    width: 80vh;
+    height: 50vh;
+    border: none;
+    font-size: large;
+    font-style: italic;
+    resize: none;
+}
+
+.btn-contenedor{
+    margin-top: 1em;
+    border-color: #ffffff;
+    padding: 1em
+}
+
+#btn-anhadir, #btn-reset{
+    border-radius: 0.5em;
+    padding: 1em;
+    background-color: #0A3871;
+    color: #ffffff;
+    padding: 1em 5em;
+}
+
+
+#btn-anhadir:hover, #btn-reset:hover{
+    border-color: #ffffff;
+    background-color: #0e488f;
+    cursor: pointer;
+}
+
+.li-palabras-anhadidas{
+    margin-left: 1em;
+    display: none;
+}
+
+@media(max-width: 768px){
+    main{
+        padding: 0.5em;
+    }
+
+    .anhadir-palabra-contenedor{
+        flex-direction: column;
+    }
+
+    #anhadir-palabra{
+        width: 45vh;
+    }
+
+    .div-palabras-anhadidas{
+        margin-top: 1em;
+    }
+
+    #btn-anhadir, #btn-reset{
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
