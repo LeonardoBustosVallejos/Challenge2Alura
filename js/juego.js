@@ -50,8 +50,9 @@ btnIngresar.addEventListener('click', ()=>{
     const texto = upperCase(inputtxt.value);
 
     validarInput(texto);
+    verificarRepetidos(texto);
     
-    if(coincidencia == false && vacio == false){
+    if(coincidencia == false && vacio == false && repetido == false){
         comprobarLetra(texto);
         letrasAnhadidas(texto);
     }
@@ -95,7 +96,6 @@ function iniciarJuego(){
 function validarInput (texto){
     verificarExistencia(texto);
     verificarSimbolo(texto);
-    verificarRepetidos(texto);
 }
 
 function verificarExistencia(texto){
@@ -123,23 +123,20 @@ function verificarSimbolo(texto){
 
         return coincidencia;
     }
-    //verificarPosicion(posicion);
 }
 
 function verificarRepetidos(texto){
     let posicion = inputAnhadidos.indexOf(texto);
     if(posicion == -1){
 
-        coincidencia = false;
-        return coincidencia
+        repetido = false;
+        return repetido
     }
     else{
-        coincidencia = true;
+        repetido = true;
 
-        return coincidencia;
+        return repetido;
     }
-
-    //verificarPosicion(posicion);
 }
 
 function comprobarLetra(input){
@@ -204,17 +201,3 @@ function removerSpansUsados(){
         letrasUsadasSpan.removeChild(letrasUsadasSpan.firstChild)
     }
 }
-
-//por algun motivo no funciona
-/*function verificarPosicion(posicion){
-    if(posicion == -1){
-
-        coincidencia = true;
-        return coincidencia
-    }
-    else{
-        coincidencia = false;
-
-        return coincidencia;
-    }
-}*/
