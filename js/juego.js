@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }))
 });
 
+//click en iniciar
 btnIniciar.addEventListener('click', ()=>{
     rendirse = false;
     aciertos = 0;
@@ -40,6 +41,8 @@ btnIniciar.addEventListener('click', ()=>{
     iniciarJuego();
 });
 
+
+//click en btn ingresar letra
 btnIngresar.addEventListener('click', ()=>{
     acerto = false;
 
@@ -57,7 +60,7 @@ btnIngresar.addEventListener('click', ()=>{
     inputtxt.value = "";
 });
 
-
+//btn rendirse
 btnDesistir.addEventListener('click', ()=>{
     rendirse = true
     errores = 9;
@@ -92,7 +95,6 @@ function iniciarJuego(){
 
 function validarInput (texto){
     verificarExistencia(texto);
-    verificarRepetidos(texto);
     verificarSimbolo(texto);
 }
 
@@ -109,20 +111,7 @@ function verificarExistencia(texto){
     }
 }
 
-function verificarRepetidos(texto){
-    let posicion = texto.search(/0|1|2|3|4|5|6|7|8|9/g);
 
-    if(posicion == -1){
-
-        coincidencia = true;
-        return coincidencia
-    }
-    else{
-        coincidencia = false;
-
-        return coincidencia;
-    }
-}
 
 function verificarSimbolo(texto){
     let posicion = texto.search(/A|B|C|D|E|F|G|H|I|J|K|L|M|N|Ñ|O|P|Q|R|S|T|U|V|W|X|Y|Z/g);
