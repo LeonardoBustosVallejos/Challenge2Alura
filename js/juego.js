@@ -11,6 +11,7 @@ const resultadoAhorcado = getid("resultado-ahorcado");
 const letrasUsadasSpan = getid('letras-erradas');
 
 let coincidencia = false;
+let vacio = false;
 let rendirse = false
 let acerto = false;
 let intentosRestantes = 9;
@@ -18,7 +19,7 @@ let aciertos = 0;
 let errores = 0;
 let posicionPalabraSecreta;
 
-let inputAnhadidos = [];
+let inputAnhadidos = new Array;
 
 //evita que se recarge la pagina al presionar enter
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,9 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }))
 });
 
-//click en iniciar
+//btn iniciar juego
 btnIniciar.addEventListener('click', ()=>{
     rendirse = false;
+    vacio = false;
     aciertos = 0;
     errores = 0;
     intentosRestantes = 9;
@@ -41,20 +43,17 @@ btnIniciar.addEventListener('click', ()=>{
     iniciarJuego();
 });
 
-
-//click en btn ingresar letra
+//btn ingresar letra
 btnIngresar.addEventListener('click', ()=>{
     acerto = false;
 
     const texto = upperCase(inputtxt.value);
 
     validarInput(texto);
-
-    if(coincidencia == false){
+    
+    if(coincidencia == false && vacio == false){
         comprobarLetra(texto);
-    }
-    else{
-        console.log("coincidencia = true");
+        letrasAnhadidas(texto);
     }
 
     inputtxt.value = "";
@@ -96,37 +95,51 @@ function iniciarJuego(){
 function validarInput (texto){
     verificarExistencia(texto);
     verificarSimbolo(texto);
+    verificarRepetidos(texto);
 }
 
 function verificarExistencia(texto){
     if(texto == ""||  texto == " "){
         
-        coincidencia = true;
-        return coincidencia
+        vacio = true;
+        return vacio
     }
     else{
 
-        coincidencia = false
-        return coincidencia;
+        vacio = false
+        return vacio;
     }
 }
 
-
-
 function verificarSimbolo(texto){
     let posicion = texto.search(/A|B|C|D|E|F|G|H|I|J|K|L|M|N|Ñ|O|P|Q|R|S|T|U|V|W|X|Y|Z/g);
-
     if(posicion == -1){
 
         coincidencia = true;
         return coincidencia
     }
     else{
-        letrasAnhadidas(texto);
         coincidencia = false;
 
         return coincidencia;
     }
+    //verificarPosicion(posicion);
+}
+
+function verificarRepetidos(texto){
+    let posicion = inputAnhadidos.indexOf(texto);
+    if(posicion == -1){
+
+        coincidencia = false;
+        return coincidencia
+    }
+    else{
+        coincidencia = true;
+
+        return coincidencia;
+    }
+
+    //verificarPosicion(posicion);
 }
 
 function comprobarLetra(input){
@@ -191,3 +204,17 @@ function removerSpansUsados(){
         letrasUsadasSpan.removeChild(letrasUsadasSpan.firstChild)
     }
 }
+
+//por algun motivo no funciona
+/*function verificarPosicion(posicion){
+    if(posicion == -1){
+
+        coincidencia = true;
+        return coincidencia
+    }
+    else{
+        coincidencia = false;
+
+        return coincidencia;
+    }
+}*/
